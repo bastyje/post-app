@@ -1,0 +1,13 @@
+<div class="card-container">
+  <div class="card">
+    <h2>Login to PostApp!</h2>
+    <div class="grid">
+      <label for="login">Login</label>
+      <input id="login" type="text" [(ngModel)]="loginModel.username">
+      <label for="password">Password</label>
+      <input id="password" type="password" [(ngModel)]="loginModel.password">
+    </div>
+    <button (click)="login()">Sign in!</button>
+    <a [routerLink]="['/', 'register']">Don't have an account? Create one!</a>
+  </div>
+</div>

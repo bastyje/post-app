@@ -1,0 +1,84 @@
+label {
+  margin-right: 9px;
+  margin-left: 9px;
+}
+
+a {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 12px;
+}
+
+input, select {
+  border: None;
+  border-bottom: 1px solid #C4C4C4;
+  border-radius: 0px;
+  text-align: center;
+}
+
+input {
+  width: 42px;
+}
+
+select {
+  width: 42px;
+  cursor: pointer;
+  padding: 3px 3px 3px 3px;
+  appearance: none;
+  background-image: url("~src/assets/icons/drop-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  text-align: start;
+  box-sizing: border-box;
+}
+
+.centering-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.disabled {
+  cursor: default;
+  color: #C8C8C8;
+}
+
+.disabled > img {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(73%) saturate(1%) hue-rotate(346deg) brightness(98%) contrast(89%);
+}
+
+.margin {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.right {
+  margin-right: 12px;
+}
+
+.left {
+  margin-left: 12px;
+}
+
+.flex {
+  display: flex;
+}
+
+.font {
+  font-size: 11px;
+}
+
+select.font, input.font {
+  font-size: 11px;
+}

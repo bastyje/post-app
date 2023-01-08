@@ -1,0 +1,31 @@
+<div class="card-container">
+  <div class="card grid">
+    <section>
+      <h2>Send package</h2>
+      <div class="form-container">
+        <div class="form-field">
+          <label for="username">Addressee username</label>
+          <input [(ngModel)]="username" id="username" autocomplete="off" >
+        </div>
+        <div class="form-field">
+          <label for="post-machine">Post machine</label>
+          <select id="post-machine" [(ngModel)]="postMachine.id">
+            <option *ngFor="let postMachine of postMachines" value="{{postMachine.id}}">
+              {{postMachine.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <button (click)="send()">Send</button>
+      <em class="error" *ngFor="let errorMessage of errorMessages">{{errorMessage.message}}</em>
+      <em class="success" *ngIf="success">Package was sent</em>
+    </section>
+    <section>
+      <h2>Receive package</h2>
+      <ul class="packages-container">
+        <li class="package" *ngFor="let package of packages">Package<button (click)="receive(package)">Receive</button></li>
+      </ul>
+      <em *ngFor="let error of receiveErrorMessages">{{error.message}}</em>
+    </section>
+  </div>
+</div>

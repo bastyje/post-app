@@ -1,6 +1,6 @@
 namespace PostApp.Domain.Entities;
 
-public interface IEntityBase<TKey> where TKey : class
+public interface IEntityBase<TKey>
 {
     public TKey Id { get; set; }
 }

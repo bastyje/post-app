@@ -1,0 +1,8 @@
+docker run \
+  -e "ACCEPT_EULA=Y" \
+  -e "MSSQL_SA_PASSWORD=Your_password123" \
+  -p 1435:1433 \
+  -it \
+  --name pamiw_mssql \
+  --rm \
+  pamiw_mssql

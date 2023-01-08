@@ -1,0 +1,23 @@
+<div class="card-container">
+  <div class="card content-container">
+    <h1 *ngIf="isEdit">Post machine no. {{postMachine.number}}</h1>
+    <h1 *ngIf="!isEdit">Create new post machine</h1>
+    <div class="container">
+        <label for="name">Name</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.name" id="name" type="text">
+        <label for="country">Country</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.country" id="country" type="text">
+        <label for="city">City</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.city" id="city" type="text">
+        <label for="postal-code">Postal code</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.postalCode" id="postal-code" type="text">
+        <label for="street">Street</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.street" id="street" type="text">
+        <label for="number">Number</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.number" id="number" type="text">
+        <label for="precise-location">Precise location</label>
+        <input [disabled]="isPreview" [(ngModel)]="postMachine.preciseLocation" id="precise-location" type="text">
+    </div>
+    <button id="save" (click)="save()">Save</button>
+  </div>
+</div>

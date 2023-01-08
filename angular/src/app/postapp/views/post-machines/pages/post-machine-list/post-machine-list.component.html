@@ -1,0 +1,37 @@
+<div class="card-container">
+  <div class="card">
+    <h1>
+      Post machines
+      <button *ngxPermissionsOnly="[Permission.Employee]" id="add" [routerLink]="'add'">Add</button>
+    </h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>City</th>
+            <th>Postal code</th>
+            <th>Street</th>
+            <th>Number</th>
+            <th *ngxPermissionsOnly="[Permission.Employee]">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let postMachine of postMachines.content">
+            <td>{{postMachine.country}}</td>
+            <td>{{postMachine.city}}</td>
+            <td>{{postMachine.postalCode}}</td>
+            <td>{{postMachine.street}}</td>
+            <td>{{postMachine.number}}</td>
+            <td *ngxPermissionsOnly="[Permission.Employee]" class="actions">
+              <button [routerLink]="['edit', postMachine.id]">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <app-pagination [pagedResponse]="postMachines" (paginationChanged)="onPaginationChanged($event)"></app-pagination>
+    </div>
+  </div>
+</div>

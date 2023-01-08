@@ -1,0 +1,24 @@
+h2 {
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.grid {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-gap: 10px;
+}
+
+.card {
+  width: max-content;
+}
+
+a {
+  color: blue;
+  text-align: center;
+}

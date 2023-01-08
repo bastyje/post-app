@@ -1,0 +1,28 @@
+<div class="centering-container">
+  <div class="container font">
+    <div>
+      <label for="items-per-page">Items per page: </label>
+      <select id="items-per-page" class="font" [(ngModel)]="pagedResponse.pageSize" (ngModelChange)="onPageSizeChange()">
+        <option value=10>10</option>
+        <option value=15>15</option>
+        <option value=20>20</option>
+        <option value=50>50</option>
+        <option value=100>100</option>
+        <option value=200>200</option>
+        <option value=500>500</option>
+      </select>
+    </div>
+    <div>
+      <label for="page-number">Page: </label>
+      <input #inputElement type="text" id="page-number" class="font" (input)="onInput()">
+      <label for="page-number">of {{pagedResponse.lastPage}}</label>
+    </div>
+    <div class="flex">
+      <a (click)="goToFirst()" [ngClass]="isPreviousDisabled() ? 'disabled' : ''"><span>Start</span><img class="left" src="assets/icons/first-page.svg"></a>
+      <a id="1" (click)="goToPrevious()" [ngClass]="isPreviousDisabled() ? 'disabled' : ''"><img class="left" src="assets/icons/previous-page.svg"></a>
+      <label for="1">{{getFirstItemIndex()}}-{{getLastItemIndex()}} from {{pagedResponse.totalItems}}</label>
+      <a (click)="goToNext()" [ngClass]="isNextDisabled() ? 'disabled' : ''"><img class="right" src="assets/icons/next-page.svg"></a>
+      <a (click)="goToLast()" [ngClass]="isNextDisabled() ? 'disabled' : ''"><img class="right" src="assets/icons/last-page.svg"><span>End</span></a>
+    </div>
+  </div>
+</div>

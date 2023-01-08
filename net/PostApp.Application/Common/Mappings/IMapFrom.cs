@@ -1,6 +1,6 @@
 using AutoMapper;
 
-namespace Chamber.Application.Common.Mappings;
+namespace PostApp.Application.Common.Mappings;
 
 public interface IMapFrom<T>
 {

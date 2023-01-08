@@ -1,0 +1,75 @@
+.form-container {
+  width: max-content;
+}
+
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  &>label {
+    margin-right: 20px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.packages-container {
+  list-style: none;
+  padding-left: 0;
+}
+
+.package {
+  margin-bottom: 10px;
+}
+
+.drop {
+  background-color: white;
+  border: 1px solid #DEDEDE;
+  border-radius: 4px;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  list-style: none;
+  padding: 0;
+  display: none;
+}
+
+input:focus ~ .drop  {
+  display: block;
+}
+
+.drop-element {
+  padding: 5px;
+  & > span {
+    display: block;
+  }
+  & > em {
+    font-size: 12px;
+  }
+}
+
+.drop-element:hover {
+  cursor: pointer;
+  background-color: #C4C4C4;
+}
+
+
+.drop-container {
+  position: relative;
+}
+
+em {
+  display: block;
+}
+
+em.error {
+  color: red;
+}
+
+em.success {
+  color: green;
+}
