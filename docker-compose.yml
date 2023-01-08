@@ -1,26 +1,36 @@
 version: "3.7"
 services:
+  app:
+    image: bastyje/pamiw-angular:1.0
+    restart: always
+    networks:
+      pamiw-net:
+        ipv4_address: 10.0.0.3
   api:
-    build:
-      context: ./net
-      dockerfile: ../docker/net/Dockerfile
-    links:
-      - "mssql:database"
-    ports:
-      - 8081:80
-      - 8082:443
-    working_dir: /app
+    image: bastyje/pamiw-net:1.0
+    networks:
+      pamiw-net:
+        ipv4_address: 10.0.0.2
+      pamiw-internal-net:
+        ipv4_address: 10.0.1.2
+    working_dir: /App
   mssql:
-    build:
-      context: ./database
-      dockerfile: ../docker/database/Dockerfile
-    volumes: 
-      - db:/var/opt/mssql
+    image: bastyje/pamiw-database:1.0
     environment:
       SA_PASSWORD: "Your_password123"
       ACCEPT_EULA: "Y"
-    ports:
-      - 1435:1433
-volumes:
-  db:
-    driver: local
+    networks:
+      pamiw-internal-net:
+        ipv4_address: 10.0.1.3
+networks:
+  pamiw-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/29
+  pamiw-internal-net:
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 10.0.1.0/29

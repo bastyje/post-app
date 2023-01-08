@@ -34,7 +34,7 @@ public class AppDbContext : DbContext, IAppDbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
-        return base.SaveChangesAsync(cancellationToken);
+        return Task.FromResult(base.SaveChanges());
     }
 
     public DbSet<TEntity> Set<TEntity, TKey>() where TEntity : class, IEntityBase<TKey>

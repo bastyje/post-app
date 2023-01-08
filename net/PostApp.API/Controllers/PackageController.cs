@@ -13,6 +13,7 @@ using PostApp.Application.Packages.Queries.GetReadyToReceive;
 
 namespace PostApp.API.Controllers;
 
+[Authorize]
 public class PackageController : BaseController
 {
     private readonly ICurrentUserService _currentUserService;
@@ -59,7 +60,6 @@ public class PackageController : BaseController
     }
 
     [HttpPost]
-    [Authorize(Policy = Permissions.Customer)]
     public async Task<IActionResult> AddPackage([FromBody] CreatePackageCommand createPackageCommand)
     {
         createPackageCommand.SenderId = _currentUserService.UserId;
@@ -67,6 +67,7 @@ public class PackageController : BaseController
     }
 
     [HttpPut]
+    [Authorize(Policy = Permissions.Employee)]
     public async Task<IActionResult> UpdatePackageStatus([FromBody] UpdatePackageStatusCommand updatePackageStatusCommand)
     {
         return new OkObjectResult(await Mediator.Send(updatePackageStatusCommand));
