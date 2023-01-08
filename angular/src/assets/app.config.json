@@ -1,6 +1,6 @@
 {
-  "backendURL": "http://localhost:5224",
-  "issuer": "http://localhost:5224",
+  "backendURL": "http://10.0.0.2",
+  "issuer": "http://10.0.0.2",
   "strictDiscoveryDocumentValidation": false,
   "redirectUri": "http://localhost:4200",
   "clientId": "520927824034-nn2ad6t80nccfs6o0u0tbml3f2vgu7l6.apps.googleusercontent.com",
